@@ -4,6 +4,8 @@ public class Main {
         task3();
         task4();
         task5();
+        task6();
+        task7();
     }
 
     public static void task1and2() {
@@ -58,7 +60,57 @@ public class Main {
                     break;
                 default:
                     System.out.println("Такого месяца не существует");
+
             }
     }
+    public static void task6(){
+        int age = 19;//возраст клиента
+        double salary = 58_000;//зарплата клиента
+        double sumAge=0;//сумма кредита по возрасту
+        double sumSalary=0;//сумма кредита по зарплате
+        double sum=0;
+
+        if(age>=23){
+            sumAge=salary*3;
+        }else{
+            sumAge=salary*2;
+        }
+
+        if(salary>=50000){
+            sumSalary=salary*1.2;
+        }else if(salary>=80000){
+            sumSalary=salary*1.5;
+        }
+
+        if(sumSalary>sumAge){sum=sumSalary;}
+        else{sum=sumAge;}
+
+        System.out.println("Мы готовы выдать вам кредитную карту с лимитом "+sum+" рублеЙ");
+    }
+    public static void task7(){
+        int age = 40;//25
+        double salary = 60_000;
+        double wantedSum =1_000_000;//330_000;
+        double payment = 0.0;
+        double maxPayment = 0.0;
+        int period = 24;
+        double percent=10.0;
+
+        if(age<23){percent+=1;}
+        else if(age<30){percent+=0.5;}
+
+        if(salary>80_000){percent-=0.7;}
+
+        payment= (wantedSum+(((wantedSum*percent/100)/12)*period))/period;
+        maxPayment=salary/2;
+
+        if(maxPayment>=payment) {
+
+            System.out.println("Максимальный платеж при ЗП " + salary + " равен " + maxPayment + " рублей. Платеж по кредиту " + payment + " рублей. Одобрено!");
+        }else{
+            System.out.println("Максимальный платеж при ЗП " + salary + " равен " + maxPayment + " рублей. Платеж по кредиту " + payment + " рублей. Отказано");
+        }
+    }
 }
+
 
